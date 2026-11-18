@@ -255,11 +255,13 @@ a {
 .brand-avatar {
   width: 34px;
   height: 34px;
-  border-radius: 50%;
+  flex-shrink: 0;
+  border-radius: 999px;
+  clip-path: circle(50%);
   object-fit: cover;
   display: block;
-  border: 1px solid var(--panel-border);
-  box-shadow: 0 4px 14px rgba(147, 51, 234, 0.42);
+  border: 1.5px solid var(--panel-border);
+  box-shadow: 0 4px 14px rgba(147, 51, 234, 0.45);
   user-select: none;
   -webkit-user-drag: none;
 }
