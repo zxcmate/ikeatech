@@ -34,8 +34,25 @@
     }
   }
 
+  function applyAvatarSources(img) {
+    if (!img) return;
+    const sources = [...data.brand.avatarSources];
+    let sourceIndex = 0;
+
+    img.onerror = () => {
+      sourceIndex += 1;
+      if (sourceIndex < sources.length) {
+        img.src = sources[sourceIndex];
+      } else {
+        img.onerror = null;
+      }
+    };
+    img.src = sources[0];
+  }
+
   function renderHeader(locale) {
     $("brand-handle").textContent = data.brand.handle;
+    applyAvatarSources($("brand-avatar"));
 
     document.querySelectorAll("#nav-links a[data-nav]").forEach((link) => {
       const key = link.getAttribute("data-nav");
@@ -55,20 +72,7 @@
     $("hero-description").textContent = h.description;
     $("hero-primary-cta").textContent = h.primaryCta;
     $("hero-secondary-cta").textContent = h.secondaryCta;
-
-    const avatarImg = $("hero-avatar");
-    const sources = [...data.brand.avatarSources];
-    let sourceIndex = 0;
-
-    avatarImg.onerror = () => {
-      sourceIndex += 1;
-      if (sourceIndex < sources.length) {
-        avatarImg.src = sources[sourceIndex];
-      } else {
-        avatarImg.onerror = null;
-      }
-    };
-    avatarImg.src = sources[0];
+    applyAvatarSources($("hero-avatar"));
 
     const factsList = $("hero-facts");
     factsList.replaceChildren();
