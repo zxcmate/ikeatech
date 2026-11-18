@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" fill="none">
+  <defs>
+    <radialGradient id="glassBg" cx="30%" cy="25%" r="85%">
+      <stop offset="0%" stop-color="#3B1D6E" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#1A0E33" stop-opacity="0.98"/>
+      <stop offset="100%" stop-color="#0B0617"/>
+    </radialGradient>
+    <linearGradient id="orb1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C084FC"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="orb2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E879F9"/>
+      <stop offset="100%" stop-color="#6D28D9"/>
+    </linearGradient>
+    <linearGradient id="glassFace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#A855F7" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="320" height="320" rx="56" fill="url(#glassBg)"/>
+
+  <!-- Liquid background blobs -->
+  <circle cx="96" cy="94" r="78" fill="url(#orb1)" fill-opacity="0.45"/>
+  <circle cx="228" cy="222" r="84" fill="url(#orb2)" fill-opacity="0.35"/>
+
+  <!-- Specular outer ring -->
+  <rect x="1.5" y="1.5" width="317" height="317" rx="54.5" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="1.5"/>
+
+  <!-- Frosted Glass Isometric Cube -->
+  <polygon points="160,64 240,110 160,156 80,110" fill="url(#glassFace)" stroke="#F5D0FE" stroke-opacity="0.7" stroke-width="2" stroke-linejoin="round"/>
+  <polygon points="80,110 160,156 160,248 80,202" fill="#4C1D95" fill-opacity="0.48" stroke="#C084FC" stroke-opacity="0.65" stroke-width="2" stroke-linejoin="round"/>
+  <polygon points="240,110 160,156 160,248 240,202" fill="#2E1065" fill-opacity="0.58" stroke="#E879F9" stroke-opacity="0.65" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- Center light drop -->
+  <circle cx="160" cy="156" r="8" fill="#F5D0FE"/>
+  <circle cx="160" cy="156" r="16" stroke="#E879F9" stroke-opacity="0.38" stroke-width="1.5"/>
+
+  <!-- Monogram I | T -->
+  <path d="M113 148 V192 M106 148 H120 M106 192 H120" stroke="#FAF5FF" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M188 156 H218 M203 156 V196" stroke="#F0ABFC" stroke-width="4.5" stroke-linecap="round"/>
+</svg>
