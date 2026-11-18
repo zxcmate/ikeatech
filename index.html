@@ -3,77 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ikea I tech — биография, стек и проекты. Telegram: @oefod." />
-  <title>ikea I tech — Биография</title>
+  <meta name="description" content="ikea I tech — биография, веб-разработка, UI, боты и настройка серверов Minecraft. Telegram: @oefod." />
+  <meta name="theme-color" content="#06020d" />
+  <title>ikea I tech — Биография и услуги</title>
   <link rel="icon" type="image/svg+xml" href="./assets/avatar.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <!-- Liquid Glass Ambient Background -->
-  <div class="liquid-scene" aria-hidden="true">
-    <span class="orb orb-1"></span>
-    <span class="orb orb-2"></span>
-    <span class="orb orb-3"></span>
-    <div class="glass-mesh"></div>
+  <a class="skip-link" href="#top">Перейти к содержимому</a>
+
+  <!-- Purple Liquid Canvas -->
+  <div class="liquid-canvas" aria-hidden="true">
+    <span class="liquid-orb orb-plum"></span>
+    <span class="liquid-orb orb-orchid"></span>
+    <span class="liquid-orb orb-indigo"></span>
   </div>
 
   <!-- Floating Glass Header -->
   <header class="site-header">
-    <div class="container header-inner glass-bar">
-      <a href="#top" class="brand" aria-label="ikea I tech home">
-        <span class="brand-mark" aria-hidden="true">I|T</span>
-        <span class="brand-name" id="brand-handle">ikea I tech</span>
-      </a>
+    <div class="container">
+      <div class="nav-shell glass-panel">
+        <a href="#top" class="brand" aria-label="ikea I tech — наверх">
+          <span class="brand-emblem" aria-hidden="true">I|T</span>
+          <span class="brand-title" id="brand-handle">ikea I tech</span>
+        </a>
 
-      <nav class="nav-links" id="nav-links" aria-label="Навигация">
-        <a href="#about" data-nav="about">О себе</a>
-        <a href="#services" data-nav="services">Услуги</a>
-        <a href="#contact" data-nav="contact">Telegram</a>
-      </nav>
+        <nav class="nav-links" id="nav-links" aria-label="Основная навигация">
+          <a href="#about" data-nav="about">О себе</a>
+          <a href="#services" data-nav="services">Услуги</a>
+          <a href="#contact" data-nav="contact">Telegram</a>
+        </nav>
 
-      <div class="header-controls">
-        <button type="button" class="pill-btn" id="lang-toggle" aria-label="Переключить язык">
-          <span class="mono">RU</span> / EN
-        </button>
-        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Переключить тему">
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
-          </svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
-          </svg>
-        </button>
-        <button type="button" class="icon-btn menu-toggle" id="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 7h16M4 12h16M4 17h16"></path>
-          </svg>
-        </button>
+        <div class="nav-actions">
+          <button type="button" class="control-pill" id="lang-toggle" aria-label="Переключить язык">
+            RU / EN
+          </button>
+          <button type="button" class="control-icon" id="theme-toggle" aria-label="Переключить тему">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="control-icon menu-toggle"
+            id="menu-toggle"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+            aria-controls="nav-links"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </header>
 
   <main id="top">
-    <!-- Hero -->
-    <section class="hero section">
-      <div class="container hero-grid">
-        <div class="hero-content reveal">
-          <a href="https://t.me/oefod" target="_blank" rel="noopener noreferrer" class="status-pill glass-pill">
-            <span class="status-dot" aria-hidden="true"></span>
-            <span id="hero-badge" class="animated-gradient-text"></span>
+    <!-- Signature Hero Showcase -->
+    <section class="hero">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <a href="https://t.me/oefod" target="_blank" rel="noopener noreferrer" class="status-badge glass-chip">
+            <span class="status-pulse" aria-hidden="true"></span>
+            <span id="hero-status"></span>
           </a>
 
           <h1 class="hero-title animated-gradient-text" id="hero-title">ikea I tech</h1>
           <p class="hero-subtitle" id="hero-subtitle"></p>
           <p class="hero-description" id="hero-description"></p>
 
-          <div class="hero-actions">
+          <div class="hero-cta-row">
             <a
               href="https://t.me/oefod"
               target="_blank"
@@ -81,54 +92,60 @@
               class="btn btn-primary"
               id="hero-primary-cta"
             ></a>
-            <a href="#services" class="btn btn-glass" id="hero-secondary-cta"></a>
+            <a href="#services" class="btn btn-secondary" id="hero-secondary-cta"></a>
           </div>
         </div>
 
-        <aside class="glass-card profile-card reveal" aria-label="Карточка профиля">
-          <div class="avatar-frame">
-            <img id="hero-avatar" src="./assets/avatar.jpg" alt="Аватар ikea I tech" width="230" height="230" />
+        <aside class="glass-panel glass-spotlight profile-showcase" aria-label="Карточка профиля">
+          <div class="avatar-well">
+            <img
+              id="hero-avatar"
+              src="./assets/avatar.jpg"
+              alt="Аватар ikea I tech"
+              width="248"
+              height="248"
+              fetchpriority="high"
+            />
           </div>
-          <dl class="spec-list" id="hero-spec-list"></dl>
+          <dl class="facts-list" id="hero-facts"></dl>
         </aside>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow mono" id="about-eyebrow"></span>
-          <h2 class="section-title" id="about-heading"></h2>
+    <!-- Quiet Editorial About Split -->
+    <section id="about" class="band">
+      <div class="container editorial-split">
+        <div class="editorial-intro">
+          <h2 class="section-heading" id="about-heading"></h2>
+          <p class="section-lead" id="about-lead"></p>
         </div>
 
-        <div class="bento-grid" id="about-cards"></div>
+        <ul class="editorial-list" id="about-points"></ul>
       </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="section">
+    <!-- Unified Liquid Glass Services Ledger -->
+    <section id="services" class="band">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow mono" id="services-eyebrow"></span>
-          <h2 class="section-title" id="services-heading"></h2>
+        <div class="section-header-inline">
+          <h2 class="section-heading" id="services-heading"></h2>
+          <p class="section-lead" id="services-lead"></p>
         </div>
 
-        <div class="bento-grid bento-grid-2" id="services-cards"></div>
+        <div class="glass-panel services-ledger" id="services-ledger"></div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section">
+    <!-- Contact Band -->
+    <section id="contact" class="band">
       <div class="container">
-        <div class="glass-card contact-panel reveal">
-          <div class="contact-main">
-            <span class="eyebrow mono" id="contact-eyebrow"></span>
-            <h2 class="section-title" id="contact-heading"></h2>
-            <p class="contact-text" id="contact-text"></p>
+        <div class="glass-panel contact-band">
+          <div class="contact-copy">
+            <h2 class="section-heading" id="contact-heading"></h2>
+            <p class="contact-lead" id="contact-text"></p>
           </div>
 
-          <div class="contact-actions">
+          <div class="contact-buttons">
             <a
               href="https://t.me/oefod"
               target="_blank"
@@ -136,7 +153,7 @@
               class="btn btn-primary"
               id="open-tg-btn"
             ></a>
-            <button type="button" class="btn btn-glass" id="copy-tg-btn"></button>
+            <button type="button" class="btn btn-secondary" id="copy-tg-btn"></button>
           </div>
         </div>
       </div>
@@ -145,14 +162,14 @@
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p class="mono" id="footer-note"></p>
-      <a href="#top" class="back-to-top mono" id="back-to-top"></a>
+    <div class="container footer-row">
+      <p id="footer-note"></p>
+      <a href="#top" class="footer-top" id="footer-top"></a>
     </div>
   </footer>
 
   <!-- Toast -->
-  <div class="toast glass-card" id="toast" role="status" aria-live="polite"></div>
+  <div class="toast glass-panel" id="toast" role="status" aria-live="polite"></div>
 
   <script src="./profile.js"></script>
   <script src="./app.js"></script>

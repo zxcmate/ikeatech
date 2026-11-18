@@ -1,184 +1,175 @@
 /**
- * PROFILE CONFIGURATION — ikea I tech
+ * PROFILE DATA — ikea I tech
  * Конфигурация контента (RU / EN).
  */
 
 window.PROFILE_DATA = {
   brand: {
     handle: "ikea I tech",
-    avatarSources: [
-      "./assets/avatar.jpg",
-      "../../brain/56a3db7f-b556-4a64-a58e-45305a992081/.user_uploaded/media_1795034019026_ad56bd80.jpg",
-      "./assets/avatar.svg",
-    ],
     telegram: "@oefod",
     telegramUrl: "https://t.me/oefod",
+    avatarSources: [
+      "./assets/avatar.jpg",
+      "./assets/avatar.svg",
+    ],
   },
 
   locales: {
     ru: {
-      metaTitle: "ikea I tech — Биография",
+      metaTitle: "ikea I tech — Биография и услуги",
       nav: {
         about: "О себе",
         services: "Услуги",
         contact: "Telegram",
       },
       hero: {
-        badge: "ONLINE • @oefod",
+        status: "На связи в Telegram (@oefod)",
         title: "ikea I tech",
-        subtitle: "Разработка, UI-инжиниринг и современные веб-интерфейсы.",
+        subtitle: "Сайты, интерфейсы, автоматизация и настройка серверов.",
         description:
-          "Создаю быстрые веб-продукты, интерфейсы и инструменты автоматизации с фокусом на чистый код и визуальную эстетику.",
+          "Делаю быстрые веб-страницы, продуманные интерфейсы, ботов и игровые серверы под конкретные задачи — аккуратно и без лишней воды.",
         primaryCta: "Написать в Telegram",
         secondaryCta: "Услуги",
-        cardFacts: [
-          { key: "Ник", value: "ikea I tech" },
-          { key: "Направление", value: "Web / UI / Automation" },
-          { key: "Telegram", value: "@oefod" },
+        facts: [
+          { label: "Псевдоним", value: "ikea I tech" },
+          { label: "Специализация", value: "Web, UI, Боты, Minecraft" },
+          { label: "Telegram", value: "@oefod", isTelegram: true },
         ],
       },
       about: {
-        eyebrow: "О СЕБЕ",
-        heading: "Коротко и по делу",
-        cards: [
+        heading: "О себе",
+        lead: "Люблю собирать цифровые вещи так, чтобы ими было приятно пользоваться с первой секунды.",
+        points: [
           {
-            tag: "ФОКУС",
-            title: "Полный цикл сборки",
-            text: "Проектирую интерфейсы, пишу фронтенд и бэкенд, связываю API и автоматизирую рутинные процессы.",
+            title: "От идеи до готового запуска",
+            text: "Продумываю структуру, верстаю адаптивный интерфейс, подключаю логику и довожу продукт до рабочего результата.",
           },
           {
-            tag: "СТИЛЬ",
-            title: "Минимализм и скорость",
-            text: "Никакого визуального шума и лишних зависимостей — только точная структура, плавная анимация и быстрый отклик.",
+            title: "Чистота и отзывчивость",
+            text: "Никаких тяжёлых шаблонов и визуального шума — упор на читаемую типографику, плавность и высокую скорость.",
           },
           {
-            tag: "ИНТЕРЕСЫ",
-            title: "Технологии и дизайн",
-            text: "Современный веб, AI-инструменты, кастомные утилиты и продуманный пользовательский опыт.",
+            title: "Гибкость под задачу",
+            text: "Одинаково уверенно работаю как с веб-интерфейсами и Telegram-ботами, так и со сборкой серверов Minecraft.",
           },
         ],
       },
       services: {
-        eyebrow: "УСЛУГИ",
-        heading: "Чем могу помочь",
-        actionLabel: "Обсудить в Telegram",
+        heading: "Услуги",
+        lead: "Выберите нужное направление — детали и сроки обсудим напрямую в Telegram.",
+        ctaLabel: "Обсудить",
         items: [
           {
-            tag: "01 / WEB",
+            category: "Веб",
             title: "Сайты и лендинги",
-            text: "Сборка современных адаптивных страниц, портфолио и промо-сайтов с продуманной анимацией и быстрой загрузкой.",
+            text: "Адаптивные персональные страницы, портфолио и промо-сайты с чистым кодом и быстрой загрузкой.",
           },
           {
-            tag: "02 / UI",
-            title: "Интерфейсы и вёрстка",
-            text: "Превращаю идеи и макеты в чистый, аккуратный интерфейс с тёмной/светлой темой и вниманием к деталям.",
+            category: "Интерфейсы",
+            title: "UI и вёрстка",
+            text: "Аккуратные интерфейсы по идее или макету со светлой и тёмной темой и вниманием к мелочам.",
           },
           {
-            tag: "03 / BOT & AUTO",
-            title: "Боты и автоматизация",
-            text: "Telegram-боты, скрипты и интеграции под ваши задачи — чтобы рутинные процессы работали сами.",
+            category: "Автоматизация",
+            title: "Боты и скрипты",
+            text: "Telegram-боты, утилиты и интеграции API, которые берут на себя рутинные процессы.",
           },
           {
-            tag: "04 / MINECRAFT",
+            category: "Игровые серверы",
             title: "Minecraft Server",
-            text: "Сборка и настройка серверов, подбор и конфигурация плагинов под ваши задачи, права, оптимизация и стабильная работа.",
+            text: "Сборка и настройка серверов, подбор и конфигурация плагинов под ваши задачи, права и оптимизация.",
           },
         ],
       },
       contact: {
-        eyebrow: "СВЯЗЬ",
-        heading: "Напишите мне в Telegram",
-        text: "По вопросам сотрудничества, разработки или просто пообщаться — отвечаю быстрее всего в Telegram.",
-        openTgBtn: "Открыть @oefod",
-        copyTgBtn: "Скопировать @oefod",
-        copiedNotice: "Скопировано:",
+        heading: "Связаться в Telegram",
+        text: "Напишите, какая задача перед вами стоит — подскажу решение и сразу сориентирую по срокам.",
+        openBtn: "Открыть @oefod",
+        copyBtn: "Скопировать @oefod",
+        copiedToast: "Скопирован @oefod",
       },
       footer: {
-        note: "ikea I tech • @oefod",
-        backToTop: "Наверх",
+        note: "ikea I tech, Telegram @oefod",
+        topLink: "Наверх",
       },
     },
 
     en: {
-      metaTitle: "ikea I tech — Biography",
+      metaTitle: "ikea I tech — Biography & Services",
       nav: {
         about: "About",
         services: "Services",
         contact: "Telegram",
       },
       hero: {
-        badge: "ONLINE • @oefod",
+        status: "Available on Telegram (@oefod)",
         title: "ikea I tech",
-        subtitle: "Development, UI engineering, and modern web interfaces.",
+        subtitle: "Websites, interfaces, automation, and server setups.",
         description:
-          "Building fast web products, refined interfaces, and automation tools with a focus on clean code and visual clarity.",
+          "I build fast web pages, clean user interfaces, Telegram bots, and Minecraft servers tailored to real tasks without unnecessary clutter.",
         primaryCta: "Message on Telegram",
         secondaryCta: "Services",
-        cardFacts: [
-          { key: "Alias", value: "ikea I tech" },
-          { key: "Focus", value: "Web / UI / Automation" },
-          { key: "Telegram", value: "@oefod" },
+        facts: [
+          { label: "Alias", value: "ikea I tech" },
+          { label: "Focus", value: "Web, UI, Bots, Minecraft" },
+          { label: "Telegram", value: "@oefod", isTelegram: true },
         ],
       },
       about: {
-        eyebrow: "ABOUT",
-        heading: "Straight to the point",
-        cards: [
+        heading: "About me",
+        lead: "I care about building digital things that feel clear, fast, and intentional from the very first glance.",
+        points: [
           {
-            tag: "FOCUS",
-            title: "End-to-end builds",
-            text: "Designing interfaces, writing frontend and backend code, wiring APIs, and automating workflows.",
+            title: "End-to-end execution",
+            text: "From shaping the layout and responsive UI to wiring logic, bots, or server configurations ready for launch.",
           },
           {
-            tag: "STYLE",
-            title: "Minimalism & speed",
-            text: "No visual clutter or heavy bloat — just clean structure, fluid motion, and instant responsiveness.",
+            title: "Clarity over bloat",
+            text: "No heavy boilerplate or visual noise — focused on readable typography, tactile glass surfaces, and speed.",
           },
           {
-            tag: "INTERESTS",
-            title: "Tech & design",
-            text: "Modern web engineering, AI tooling, custom utilities, and thoughtful user experience.",
+            title: "Practical versatility",
+            text: "Comfortable across modern web interfaces, Telegram automation tools, and custom Minecraft server setups.",
           },
         ],
       },
       services: {
-        eyebrow: "SERVICES",
-        heading: "How I can help",
-        actionLabel: "Discuss on Telegram",
+        heading: "Services",
+        lead: "Pick what you need and reach out on Telegram to discuss details.",
+        ctaLabel: "Discuss",
         items: [
           {
-            tag: "01 / WEB",
-            title: "Websites & Landing Pages",
-            text: "Modern responsive pages, personal bio sites, and landing experiences with smooth motion and fast load times.",
+            category: "Web",
+            title: "Websites and landing pages",
+            text: "Responsive bio pages, portfolios, and landing experiences built for speed and clean structure.",
           },
           {
-            tag: "02 / UI",
-            title: "UI Engineering",
-            text: "Turning concepts and designs into crisp, responsive interfaces with dual themes and micro-interactions.",
+            category: "Interfaces",
+            title: "UI engineering",
+            text: "Crisp interfaces built from a concept or mockup, complete with dark and light themes.",
           },
           {
-            tag: "03 / BOT & AUTO",
-            title: "Bots & Automation",
-            text: "Custom Telegram bots, scripts, and API workflows to automate repetitive tasks cleanly.",
+            category: "Automation",
+            title: "Bots and scripts",
+            text: "Custom Telegram bots, utilities, and API integrations that automate repetitive work.",
           },
           {
-            tag: "04 / MINECRAFT",
+            category: "Game servers",
             title: "Minecraft Server",
-            text: "Full server setup, custom plugin configuration for your goals, permissions, optimization, and smooth performance.",
+            text: "Full server setup, custom plugin configuration for your goals, permissions, and performance tuning.",
           },
         ],
       },
       contact: {
-        eyebrow: "CONTACT",
         heading: "Reach out on Telegram",
-        text: "For collaborations, custom builds, or tech talk — Telegram is the fastest way to reach me.",
-        openTgBtn: "Open @oefod",
-        copyTgBtn: "Copy @oefod",
-        copiedNotice: "Copied:",
+        text: "Send a quick message about what you want to build or configure — I reply fastest on Telegram.",
+        openBtn: "Open @oefod",
+        copyBtn: "Copy @oefod",
+        copiedToast: "Copied @oefod",
       },
       footer: {
-        note: "ikea I tech • @oefod",
-        backToTop: "Top",
+        note: "ikea I tech, Telegram @oefod",
+        topLink: "Back to top",
       },
     },
   },

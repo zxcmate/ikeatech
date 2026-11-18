@@ -1,5 +1,6 @@
 /**
- * APPLICATION LOGIC — ikea I tech
+ * APPLICATION CORE — ikea I tech
+ * Renders content from profile.js and drives interactions cleanly
  */
 
 (function () {
@@ -26,6 +27,11 @@
     state.theme = theme === "light" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", state.theme);
     localStorage.setItem("iit_theme", state.theme);
+
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (metaTheme) {
+      metaTheme.setAttribute("content", state.theme === "light" ? "#f5f0ff" : "#06020d");
+    }
   }
 
   function renderHeader(locale) {
@@ -38,21 +44,18 @@
       }
     });
 
-    const langBtn = $("lang-toggle");
-    langBtn.innerHTML =
-      state.lang === "ru"
-        ? '<span class="mono">RU</span> / EN'
-        : 'RU / <span class="mono">EN</span>';
+    $("lang-toggle").textContent = state.lang === "ru" ? "RU / EN" : "EN / RU";
   }
 
   function renderHero(locale) {
     const h = locale.hero;
-    $("hero-badge").textContent = h.badge;
+    $("hero-status").textContent = h.status;
     $("hero-title").textContent = h.title;
     $("hero-subtitle").textContent = h.subtitle;
     $("hero-description").textContent = h.description;
     $("hero-primary-cta").textContent = h.primaryCta;
     $("hero-secondary-cta").textContent = h.secondaryCta;
+
     const avatarImg = $("hero-avatar");
     const sources = [...data.brand.avatarSources];
     let sourceIndex = 0;
@@ -67,82 +70,92 @@
     };
     avatarImg.src = sources[0];
 
-    const specList = $("hero-spec-list");
-    specList.replaceChildren();
-    h.cardFacts.forEach((row) => {
-      const wrapper = el("div", "spec-row");
-      const dt = el("dt", "", row.key);
+    const factsList = $("hero-facts");
+    factsList.replaceChildren();
+    h.facts.forEach((fact) => {
+      const row = el("div", "fact-row");
+      const dt = el("dt", "", fact.label);
       const dd = el("dd");
-      if (row.value === data.brand.telegram) {
-        const link = el("a", "", row.value);
+      if (fact.isTelegram) {
+        const link = el("a", "", fact.value);
         link.href = data.brand.telegramUrl;
         link.target = "_blank";
         link.rel = "noopener noreferrer";
         dd.appendChild(link);
       } else {
-        dd.textContent = row.value;
+        dd.textContent = fact.value;
       }
-      wrapper.append(dt, dd);
-      specList.appendChild(wrapper);
+      row.append(dt, dd);
+      factsList.appendChild(row);
     });
   }
 
   function renderAbout(locale) {
     const a = locale.about;
-    $("about-eyebrow").textContent = a.eyebrow;
     $("about-heading").textContent = a.heading;
+    $("about-lead").textContent = a.lead;
 
-    const cardsContainer = $("about-cards");
-    cardsContainer.replaceChildren();
-    a.cards.forEach((card) => {
-      const article = el("article", "card glass-card reveal is-visible");
-      article.append(
-        el("span", "card-tag", card.tag),
-        el("h3", "", card.title),
-        el("p", "", card.text)
-      );
-      cardsContainer.appendChild(article);
+    const list = $("about-points");
+    list.replaceChildren();
+    a.points.forEach((point) => {
+      const item = el("li", "editorial-item");
+      item.append(el("h3", "", point.title), el("p", "", point.text));
+      list.appendChild(item);
     });
   }
 
   function renderServices(locale) {
     const s = locale.services;
-    $("services-eyebrow").textContent = s.eyebrow;
     $("services-heading").textContent = s.heading;
+    $("services-lead").textContent = s.lead;
 
-    const cardsContainer = $("services-cards");
-    cardsContainer.replaceChildren();
+    const ledger = $("services-ledger");
+    ledger.replaceChildren();
     s.items.forEach((item) => {
-      const article = el("article", "card service-card glass-card reveal is-visible");
-      const top = el("div");
-      top.append(
-        el("span", "card-tag", item.tag),
-        el("h3", "", item.title),
-        el("p", "", item.text)
-      );
+      const row = el("article", "service-row");
 
-      const link = el("a", "service-cta mono", `${s.actionLabel} →`);
-      link.href = data.brand.telegramUrl;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
+      const category = el("div", "service-category", item.category);
+      const body = el("div", "service-body");
+      body.append(el("h3", "", item.title), el("p", "", item.text));
 
-      article.append(top, link);
-      cardsContainer.appendChild(article);
+      const action = el("a", "service-action", s.ctaLabel);
+      action.href = data.brand.telegramUrl;
+      action.target = "_blank";
+      action.rel = "noopener noreferrer";
+
+      row.append(category, body, action);
+      ledger.appendChild(row);
     });
   }
 
   function renderContact(locale) {
     const c = locale.contact;
-    $("contact-eyebrow").textContent = c.eyebrow;
     $("contact-heading").textContent = c.heading;
     $("contact-text").textContent = c.text;
-    $("open-tg-btn").textContent = c.openTgBtn;
-    $("copy-tg-btn").textContent = c.copyTgBtn;
+    $("open-tg-btn").textContent = c.openBtn;
+    $("copy-tg-btn").textContent = c.copyBtn;
   }
 
   function renderFooter(locale) {
-    $("footer-note").textContent = `${locale.footer.note} • ${new Date().getFullYear()}`;
-    $("back-to-top").textContent = `↑ ${locale.footer.backToTop}`;
+    $("footer-note").textContent = `${locale.footer.note}, ${new Date().getFullYear()}`;
+    $("footer-top").textContent = locale.footer.topLink;
+  }
+
+  function bindSpotlights() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    document.querySelectorAll(".glass-spotlight").forEach((panel) => {
+      if (panel.dataset.spotlightBound) return;
+      panel.dataset.spotlightBound = "1";
+      panel.addEventListener(
+        "pointermove",
+        (e) => {
+          const rect = panel.getBoundingClientRect();
+          panel.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+          panel.style.setProperty("--my", `${e.clientY - rect.top}px`);
+        },
+        { passive: true }
+      );
+    });
   }
 
   function renderAll() {
@@ -156,6 +169,7 @@
     renderServices(locale);
     renderContact(locale);
     renderFooter(locale);
+    bindSpotlights();
   }
 
   let toastTimer = null;
@@ -167,19 +181,19 @@
     toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
   }
 
-  async function copyText(value) {
-    const notice = data.locales[state.lang].contact.copiedNotice;
+  async function copyTelegram() {
+    const notice = data.locales[state.lang].contact.copiedToast;
     try {
-      await navigator.clipboard.writeText(value);
-      showToast(`${notice} ${value}`);
+      await navigator.clipboard.writeText(data.brand.telegram);
+      showToast(notice);
     } catch {
       const input = document.createElement("input");
-      input.value = value;
+      input.value = data.brand.telegram;
       document.body.appendChild(input);
       input.select();
       document.execCommand("copy");
       input.remove();
-      showToast(`${notice} ${value}`);
+      showToast(notice);
     }
   }
 
@@ -194,7 +208,7 @@
       renderAll();
     });
 
-    $("copy-tg-btn").addEventListener("click", () => copyText(data.brand.telegram));
+    $("copy-tg-btn").addEventListener("click", copyTelegram);
 
     const menuBtn = $("menu-toggle");
     const navLinks = $("nav-links");
@@ -211,30 +225,34 @@
     });
   }
 
-  function setupReveal() {
-    const nodes = document.querySelectorAll(".reveal");
-    if (!("IntersectionObserver" in window)) {
-      nodes.forEach((n) => n.classList.add("is-visible"));
-      return;
-    }
+  function setupActiveNav() {
+    if (!("IntersectionObserver" in window)) return;
+    const sections = document.querySelectorAll("main section[id]");
+    const navMap = new Map(
+      Array.from(document.querySelectorAll("#nav-links a[data-nav]")).map((a) => [
+        a.getAttribute("data-nav"),
+        a,
+      ])
+    );
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
+          const link = navMap.get(entry.target.id);
+          if (link && entry.isIntersecting) {
+            navMap.forEach((item) => item.classList.remove("active"));
+            link.classList.add("active");
           }
         });
       },
-      { threshold: 0.12 }
+      { rootMargin: "-38% 0px -48% 0px" }
     );
 
-    nodes.forEach((node) => observer.observe(node));
+    sections.forEach((section) => observer.observe(section));
   }
 
   applyTheme(state.theme);
   renderAll();
   setupEvents();
-  setupReveal();
+  setupActiveNav();
 })();
